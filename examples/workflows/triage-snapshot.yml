@@ -1,0 +1,22 @@
+name: Maintainer triage snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 8 * * 1"
+
+permissions:
+  issues: read
+  pull-requests: read
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create weekly triage snapshot
+        uses: niladriroyblue-eng/repo-triage-kit@v0
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ github.token }}
+          stale-days: "30"
+          first-response-days: "7"
