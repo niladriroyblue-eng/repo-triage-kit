@@ -1,0 +1,43 @@
+{
+  "repository": "example-org/sample-project",
+  "items": [
+    {
+      "number": 101,
+      "title": "Add support for proxy configuration",
+      "html_url": "https://github.com/example-org/sample-project/issues/101",
+      "created_at": "2026-10-08T12:00:00Z",
+      "updated_at": "2026-10-08T12:00:00Z",
+      "comments": 0,
+      "labels": []
+    },
+    {
+      "number": 102,
+      "title": "Document retry behavior",
+      "html_url": "https://github.com/example-org/sample-project/issues/102",
+      "created_at": "2026-10-12T09:00:00Z",
+      "updated_at": "2026-10-25T16:30:00Z",
+      "comments": 3,
+      "labels": [{ "name": "documentation" }]
+    },
+    {
+      "number": 103,
+      "title": "Reduce duplicate requests in the resolver",
+      "html_url": "https://github.com/example-org/sample-project/pull/103",
+      "created_at": "2026-10-01T10:00:00Z",
+      "updated_at": "2026-10-01T10:00:00Z",
+      "comments": 0,
+      "labels": [],
+      "draft": false,
+      "pull_request": { "url": "https://api.github.com/repos/example-org/sample-project/pulls/103" }
+    },
+    {
+      "number": 104,
+      "title": "Question about platform support",
+      "html_url": "https://github.com/example-org/sample-project/issues/104",
+      "created_at": "2026-11-01T10:00:00Z",
+      "updated_at": "2026-11-01T10:00:00Z",
+      "comments": 0,
+      "labels": []
+    }
+  ]
+}
