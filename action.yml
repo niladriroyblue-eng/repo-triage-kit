@@ -1,0 +1,35 @@
+name: Repo Triage Kit
+description: Create a read-only issue and pull-request triage snapshot in the job summary.
+author: Repo Triage Kit contributors
+inputs:
+  repository:
+    description: Repository to scan in owner/name format.
+    required: true
+  token:
+    description: Token with read access to issues and pull requests.
+    required: false
+    default: ""
+  stale-days:
+    description: Flag open items with no updates for this many days.
+    required: false
+    default: "30"
+  first-response-days:
+    description: Flag open items without comments after this many days.
+    required: false
+    default: "7"
+runs:
+  using: composite
+  steps:
+    - name: Create triage snapshot
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        INPUT_REPOSITORY: ${{ inputs.repository }}
+        INPUT_STALE_DAYS: ${{ inputs.stale-days }}
+        INPUT_FIRST_RESPONSE_DAYS: ${{ inputs.first-response-days }}
+      run: |
+        PYTHONPATH="$GITHUB_ACTION_PATH/src" python3 "$GITHUB_ACTION_PATH/action.py" \
+          --repo "$INPUT_REPOSITORY" \
+          --stale-days "$INPUT_STALE_DAYS" \
+          --first-response-days "$INPUT_FIRST_RESPONSE_DAYS" \
+          --format markdown >> "$GITHUB_STEP_SUMMARY"
